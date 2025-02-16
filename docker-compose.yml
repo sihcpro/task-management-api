@@ -1,0 +1,36 @@
+version: "3.9"
+
+volumes:
+  database-data:
+
+services:
+  database:
+    image: postgres:14.12-alpine
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=task_management
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: pg_isready -U postgres
+      interval: 1s
+      timeout: 5s
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8099:8099"
+    depends_on:
+      database:
+        condition: service_healthy
+    environment:
+      - DEBUG=True
+      - POSTGRES_HOST=database
+      - DJANGO_SUPERUSER_PASSWORD=admin
+    healthcheck:
+      test: curl --fail http://localhost:8099 || exit 1
+      interval: 1s
+      timeout: 5s

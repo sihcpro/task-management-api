@@ -1,0 +1,7 @@
+{
+    "editor.formatOnSave": true,
+    "black.path": "e:/Work/task-management-api/venv/Scripts/black",
+    "black.lineLength": 100,
+    "python.analysis.autoImportCompletions": true,
+    "python.defaultInterpreterPath": "python"
+}
