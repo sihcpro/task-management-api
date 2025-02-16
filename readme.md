@@ -56,3 +56,6 @@ Demo images:
 
 4. Filter tasks:
    ![Filter tasks](docs/employer_tasks_filtering.PNG)
+
+5. Swagger API documentation:
+   ![Swagger API documentation](docs/swagger.PNG)
