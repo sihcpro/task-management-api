@@ -1,8 +1,6 @@
 from rest_framework import serializers
 
-from user.models import UserTasks, Users
-
-
+from user.models import Users, UserTasks
 from .models import Tasks
 
 

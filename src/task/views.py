@@ -1,15 +1,14 @@
 from django.db import transaction
-from rest_framework import viewsets
+from rest_framework import mixins, viewsets
 from rest_framework.decorators import action
-from rest_framework import mixins
+from rest_framework.filters import OrderingFilter
 
 from helpers.exceptions import BadRequestException
 from helpers.responses import AppResponse
-from user.models import UserTasks, Users
+from user.models import Users, UserTasks
 from user.permissions import EmployerPermission
-from .serializers import TaskDetailSerializer, TaskSerializer
 from .models import Tasks
-from rest_framework.filters import OrderingFilter
+from .serializers import TaskDetailSerializer, TaskSerializer
 
 
 class UserTaskViewSet(

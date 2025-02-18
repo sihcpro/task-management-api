@@ -1,14 +1,14 @@
+from django.contrib.auth import authenticate
 from django.http import JsonResponse
+from django.shortcuts import get_object_or_404, render
+from rest_framework import status, views
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.models import Token
+from rest_framework.renderers import TemplateHTMLRenderer
+from rest_framework.response import Response
 
 from helpers.responses import AppResponse
 from user.serializers import LoginSerializer
-from rest_framework import views, status
-from rest_framework.authentication import TokenAuthentication
-from django.contrib.auth import authenticate
-from rest_framework.renderers import TemplateHTMLRenderer
-from django.shortcuts import get_object_or_404, render
-from rest_framework.response import Response
 
 
 class LoginAPIView(views.APIView):

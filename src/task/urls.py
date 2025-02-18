@@ -1,7 +1,6 @@
 from rest_framework import routers
 
-from .views import UserTaskViewSet, EmployerTaskViewSet
-
+from .views import EmployerTaskViewSet, UserTaskViewSet
 
 router = routers.DefaultRouter()
 

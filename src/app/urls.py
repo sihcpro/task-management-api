@@ -15,13 +15,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from task.urls import router as task_router
-from user.views import LoginAPIView
-
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
+from task.urls import router as task_router
+from user.views import LoginAPIView
 from .swagger import urlpatterns as swagger_urlpatterns
 
 router = DefaultRouter()
